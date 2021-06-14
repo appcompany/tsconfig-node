@@ -12,6 +12,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     name: Test Rules
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -22,6 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish to NPM
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
