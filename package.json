@@ -4,7 +4,7 @@
   "description": "TSConfig base configuration for App Company.io",
   "main": "tsconfig.json",
   "scripts": {
-    "test": "mocha -r ts-node/register spec/**/*.spec.ts"
+    "test": "mocha -r ts-node/register spec/**/*.spec.ts --timeout 30000"
   },
   "repository": {
     "type": "git",
