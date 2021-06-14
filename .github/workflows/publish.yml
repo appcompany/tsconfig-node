@@ -7,7 +7,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
         node: [12, 14, 16]
     runs-on: ${{ matrix.os }}
     name: Test Rules
@@ -33,6 +33,7 @@ jobs:
       - name: Run Tests
         run: npm test
   publish:
+    if: github.event == 'push'
     runs-on: ubuntu-latest
     name: Publish to NPM
     needs: test
