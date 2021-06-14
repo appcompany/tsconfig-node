@@ -1,0 +1,32 @@
+name: Publishing
+
+on: push
+
+jobs:
+  test:
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [10, 12, 14, 16]
+    runs-on: ${{ matrix.os }}
+    name: Test Rules
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Run Tests
+        run: npm test
+  publish:
+    runs-on: ubuntu-latest
+    name: Publish to NPM
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
