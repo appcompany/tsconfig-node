@@ -1,6 +1,11 @@
 name: Publishing
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "12 5 * * *"
 
 jobs:
   test:
