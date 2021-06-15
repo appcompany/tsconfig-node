@@ -1,14 +1,14 @@
 {
-  "name": "@appcompanyio/tsconfig-node",
+  "name": "@onezerocompany/tsconfig-node",
   "version": "1.0.0",
-  "description": "TSConfig base configuration for App Company.io",
+  "description": "TSConfig for all OneZero Node.js projects",
   "main": "tsconfig.json",
   "scripts": {
     "test": "mocha -r ts-node/register spec/**/*.spec.ts --timeout 30000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/appcompany/tsconfig-node.git"
+    "url": "git+https://github.com/onezerocompany/tsconfig-node.git"
   },
   "keywords": [
     "tsconfig",
@@ -19,9 +19,9 @@
   "author": "App Company.io",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/appcompany/tsconfig-node/issues"
+    "url": "https://github.com/onezerocompany/tsconfig-node/issues"
   },
-  "homepage": "https://github.com/appcompany/tsconfig-node#readme",
+  "homepage": "https://github.com/onezerocompany/tsconfig-node#readme",
   "devDependencies": {
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",
