@@ -38,7 +38,7 @@ jobs:
       - name: Run Tests
         run: npm test
   publish:
-    if: github.event == 'push'
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     name: Publish to NPM
     needs: test
