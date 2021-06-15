@@ -1,6 +1,6 @@
 {
   "name": "@onezerocompany/tsconfig-node",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TSConfig for all OneZero Node.js projects",
   "main": "tsconfig.json",
   "scripts": {
