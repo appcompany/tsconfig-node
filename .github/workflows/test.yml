@@ -16,6 +16,9 @@ jobs:
         node: [12, 14, 16]
     runs-on: ${{ matrix.os }}
     name: Test Rules
+    outputs:
+      current_version: ${{ steps.versions.outputs.current_version }}
+      published_version: ${{ steps.versions.outputs.published_version }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -37,3 +40,23 @@ jobs:
         run: npm install
       - name: Run Tests
         run: npm test
+      - name: Export Versions
+        id: versions
+        run: |
+          echo ::set-output name=current_version::$(node -e "console.log(require('./package.json').version);")
+          echo ::set-output name=published_version::$(npm view @onezerocompany/tsconfig-node version)
+  create_release:
+    runs-on: ubuntu-latest
+    name: Create Release
+    needs: test
+    if: needs.test.outputs.current_version != needs.test.outputs.published_version
+    steps:
+      - name: Create Release
+        uses: actions/github-script@v4
+        with:
+          script: |
+            github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: ${{ needs.test.outputs.current_version }}
+            })
