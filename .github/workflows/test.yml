@@ -58,5 +58,5 @@ jobs:
             github.rest.repos.createRelease({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              tag_name: ${{ needs.test.outputs.current_version }}
+              tag_name: '${{ needs.test.outputs.current_version }}'
             })
