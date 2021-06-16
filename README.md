@@ -7,3 +7,18 @@ In case you are interested in using this config file for your own projects we wi
 
 1. It will be updated to each LTS version of Node.js
 2. It uses `node` module resolution
+
+## How to use
+
+First install this package inside your project:
+
+`npm install --save-dev @onezerocompany/tsconfig-node`
+
+---
+
+Then inside your `tsconfig.json` add the `extends` value like so:
+```json
+{
+  "extends": "@onezerocompany/tsconfig-node/tsconfig.json"
+}
+```
