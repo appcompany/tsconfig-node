@@ -54,7 +54,7 @@ jobs:
       - name: Create Release
         uses: actions/github-script@v4
         with:
-          github-token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          github-token: ${{ secrets.TOKEN_GITHUB_RELEASES }}
           script: |
             github.repos.createRelease({
               owner: context.repo.owner,
