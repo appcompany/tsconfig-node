@@ -1,11 +1,13 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
+    "target": "ES2017",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
     "outDir": "lib",
-  },
-  "include": ["types/deno.d.ts"]
+    "types": ["node"]
+  }
 }
